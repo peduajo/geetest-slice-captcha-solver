@@ -1,5 +1,6 @@
-import cv2
+from pathlib import Path
 import numpy as np
+import cv2
 
 
 PIXELS_EXTENSION = 10
@@ -93,6 +94,6 @@ class PuzleSolver:
         return grad
 
     def __img_to_grayscale(self, img):
-        tmp_path = "/tmp/sobel.png"
+        tmp_path = str(Path(r'./tmp/sobel.png').resolve())
         cv2.imwrite(tmp_path, img)
         return cv2.imread(tmp_path, 0)
